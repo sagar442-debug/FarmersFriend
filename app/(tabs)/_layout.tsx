@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Platform, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import PlantIcon from "../../assets/icons/plantIcon.svg";
@@ -20,6 +20,7 @@ const _layout = () => {
           alignItems: "center",
           display: "flex",
           flexDirection: "row",
+          marginTop: Platform.OS === "ios" ? 17 : 0,
         },
         tabBarStyle: {
           backgroundColor: "#F37D2D",
@@ -55,7 +56,7 @@ const _layout = () => {
               }`}
             >
               <TabIcon title="Home" />
-              <Text className="text-white text-xs">Home</Text>
+              <Text className="text-white text-xs font-poppins">Home</Text>
             </View>
           ),
         }}
@@ -72,7 +73,7 @@ const _layout = () => {
               }`}
             >
               <TabIcon title="Favorite" />
-              <Text className="text-white text-xs">Favorite</Text>
+              <Text className="text-white text-xs font-poppins">Favorite</Text>
             </View>
           ),
         }}
@@ -119,7 +120,7 @@ const _layout = () => {
               }`}
             >
               <TabIcon title="Profile" />
-              <Text className="text-white text-xs">Profile</Text>
+              <Text className="text-white text-xs font-poppins">Profile</Text>
             </View>
           ),
         }}
@@ -136,7 +137,7 @@ const _layout = () => {
               }`}
             >
               <TabIcon title="Settings" />
-              <Text className="text-white text-xs">Settings</Text>
+              <Text className="text-white text-xs font-poppins">Settings</Text>
             </View>
           ),
         }}
