@@ -1,9 +1,13 @@
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, ScrollViewBase, Text, View } from "react-native";
 import "../global.css";
 import { SafeAreaView } from "react-native-safe-area-context";
+// @ts-ignore
 import BackgroundImage from "../../assets/images/hikingBgPicture.svg";
+// @ts-ignore
 import CabbageImage from "../../assets/vegetables/cabbagePlaceholder.png";
 import LastScanCard from "@/components/LastScanCard";
+import CardItem from "@/components/ItemList";
+import ItemList from "@/components/ItemList";
 
 type UserData = {
   name: String;
@@ -26,32 +30,43 @@ export default function Index() {
   };
   return (
     <SafeAreaView className="flex-1 bg-[#F37D2D]">
-      <View className="flex-row justify-between px-10 items-center ">
-        <View className="flex-col justify-center ">
-          <Image
-            source={require("../../assets/images/profilepic.png")}
-            className="w-10 h-10 rounded-full mb-2"
-          />
-          <Text className="text-white text-xl font-poppins-semibold leading-6">
-            Hello,{"\n"}
-            {userData.name}
-          </Text>
-          <Text className="text-[#DFDFDF] leading-tightest text-[8px] mt-2 leading-3 font-poppins">
-            Lets get started with your journey!
-          </Text>
-        </View>
-        <View>
-          <BackgroundImage />
-        </View>
-      </View>
-      <View className="flex-1 items-center  bg-[#F0F2F4] rounded-t-[35px]">
-        <View className="py-10">
-          <View className="flex-row justify-between">
-            <LastScanCard />
+      <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
+        <View className="flex-row items-center justify-between px-10 ">
+          <View className=" ">
+            <Image
+              source={require("../../assets/images/profilepic.png")}
+              className="w-10 h-10 rounded-full mb-2"
+            />
+            <Text className="text-white text-xl font-poppins-semibold leading-6">
+              Hello,{"\n"}
+              {userData.name}
+            </Text>
+            <Text className="text-[#DFDFDF] leading-tightest text-[8px] mt-2 leading-3 font-poppins">
+              Lets get started with your journey!
+            </Text>
           </View>
-          <View className="flex-row justify-between"></View>
+          <View>
+            <BackgroundImage />
+          </View>
         </View>
-      </View>
+        <View className="bg-[#F0F2F4] rounded-t-[35px]">
+          <View className="flex-1 items-center py-10">
+            <View className="flex-row  justify-between">
+              <LastScanCard />
+            </View>
+          </View>
+          <View className="px-5 mb-4">
+            <ItemList />
+          </View>
+          <View className="px-5 mb-4">
+            <ItemList />
+          </View>
+          <View className="px-5 mb-4">
+            <ItemList />
+          </View>
+          <View className="pb-32" />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

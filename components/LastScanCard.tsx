@@ -1,4 +1,5 @@
 import { View, Text, Image } from "react-native";
+// @ts-ignore
 import CabbageImage from "../assets/vegetables/cabbagePlaceholder.png";
 
 const LastScanCard = () => {
