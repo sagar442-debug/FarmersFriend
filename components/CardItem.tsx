@@ -3,10 +3,10 @@ import React from "react";
 // @ts-ignore
 import CabbageImage from "../assets/vegetables/cabbagePlaceholder.png";
 
-const CardItem = () => {
+const CardItem = ({ common_name, scientific_name, default_image }: Plant) => {
   return (
     <View
-      className="bg-white rounded-lg p-4 mr-6 h-24"
+      className="bg-white rounded-lg flex-row items-center p-2 mr-6 h-28"
       style={{
         shadowColor: "#000",
         shadowOffset: {
@@ -19,12 +19,20 @@ const CardItem = () => {
       }}
     >
       <View className="flex-row gap-2 items-center">
-        <Image source={CabbageImage} className="w-10 h-10" />
+        <Image
+          source={{ uri: default_image?.medium_url }}
+          className="w-12 h-12 rounded-full"
+        />
         <View className="max-w-52">
-          <Text className="text-black text-sm font-bold">Cabbage</Text>
-          <Text className="text-[#9c9c9c] text-xs">
-            Cabbage, comprising several cultivars of Brassica oleracea, is a
-            leafy green, red, ...
+          <Text className="text-black text-sm font-bold">
+            {common_name ? common_name : "Unknown"}
+          </Text>
+          <Text className="text-[#9c9c9c] text-[8px] font-bold">
+            Scientific Name: {scientific_name ? scientific_name : "Unknown"}
+          </Text>
+          <Text className="text-[#9c9c9c] text-xs mt-1" numberOfLines={2}>
+            Cabbage, comprising several cultivars of Brassica oleracea and what
+            not
           </Text>
         </View>
       </View>

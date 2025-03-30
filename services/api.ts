@@ -1,6 +1,6 @@
 export const PLANT_CONFIG = {
   API_KEY: process.env.EXPO_PUBLIC_PLANT_API_KEY,
-  API_URL: `https://perenual.com/api/v2/species-list?api_key=${process.env.EXPO_PUBLIC_PLANT_API_KEY}`,
+  API_URL: `https://perenual.com/api/v2/species-list?key=${process.env.EXPO_PUBLIC_PLANT_API_KEY}`,
   headers: {
     "Content-Type": "application/json",
   },
